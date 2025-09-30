@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+<meta content="Makeup by L for events, nights out and bridal parties. Gallery, prices and booking." name="description">
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<style>
+    :root{
+      --panel:#121a2b; --ink:#eaf2ff; --muted:#b9c6e6; --accent:#37c0fb;
+      --border:#1f2b45; --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.18);
+      --container:1100px;
+    }
+    body{ background:#0b1220; color:var(--ink); margin:0; }
+    .container{ max-width:var(--container); margin-inline:auto; padding-inline:16px; }
+    .section{ padding:48px 0; }
+    h2{ color:var(--ink); margin:0 0 16px; }
+
+    /* Top navigation (kept consistent with other pages) */
+    .header{ border-bottom:1px solid var(--border); background:#0b1220; position:sticky; top:0; z-index:100; }
+    .nav{ display:flex; align-items:center; gap:18px; padding:14px 0; }
+    .nav a{ color:var(--accent); font-weight:600; text-decoration:none; }
+    .nav a:hover{ color:#fff; }
+    .nav a.active{ color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+    .logo{ display:flex; align-items:center; gap:10px; margin-right:6px; }
+    .logo img{ height:28px; width:auto; display:block; }
+    .badge{ background:#0e172b; border:1px solid #243251; color:#cfe0ff; border-radius:999px; padding:2px 8px; font-size:.75rem; }
+    .spacer{ flex:1 1 auto; }
+    .btn, .btn-book{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px;
+      font-weight:600; text-decoration:none; border:1px solid transparent;
+      background:var(--accent); color:#001026; transition: transform .12s ease, box-shadow .25s ease;
+    }
+    .btn:hover, .btn-book:hover{ transform:translateY(-1px); box-shadow:0 10px 28px rgba(55,192,251,.35); }
+
+    /* Hero */
+    .hero{
+      position:relative; isolation:isolate; padding:72px 0 28px;
+      background:
+        radial-gradient(900px 280px at 25% -40px, rgba(46,168,255,.25), transparent 70%),
+        radial-gradient(700px 240px at 85% -60px, rgba(85,200,255,.12), transparent 70%);
+    }
+    .hero::before{ content:""; position:absolute; inset:0; z-index:-1;
+      background:radial-gradient(1200px 600px at 50% -200px, rgba(0,0,0,.25), transparent 60%); }
+    .hero-grid{ display:grid; gap:24px; grid-template-columns:1fr; }
+    @media (min-width:980px){ .hero-grid{ grid-template-columns:1.05fr .95fr; align-items:center; } }
+    .lead{ color:var(--muted); max-width:60ch; }
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .hero-visual{
+      background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:10px; aspect-ratio:4/3; display:grid; place-items:center; overflow:hidden;
+    }
+    .hero-visual img{ width:100%; height:100%; object-fit:contain; display:block; border-radius:10px; }
+
+    /* Split Prices + Gallery */
+    .split{ display:grid; gap:18px; grid-template-columns:1fr; align-items:center; }
+    @media (min-width:900px){ .split{ grid-template-columns:1.1fr .9fr; } }
+    .panel{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; }
+    .panel h3{ margin:0 0 8px; }
+    .panel p{ color:var(--muted); }
+
+    .prices-card{ display:grid; place-items:center; margin-top:4px; }
+    .prices-card img{ width:100%; max-width:520px; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); }
+    .smallnote{ margin-top:6px; opacity:.85; color:var(--muted); }
+
+    .mini-gallery{ display:grid; grid-template-columns:repeat(auto-fill, minmax(140px,1fr)); gap:10px; }
+    @media (min-width:1000px){ .mini-gallery{ grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:12px; } }
+    .mini-gallery figure{ margin:0; border-radius:12px; overflow:hidden; background:var(--panel); border:1px solid var(--border); box-shadow:0 6px 18px rgba(0,0,0,.12); }
+    .mini-gallery img{ width:100%; height:100%; aspect-ratio:1/1; object-fit:cover; display:block; transition:transform .2s ease; }
+    .mini-gallery img:hover{ transform:scale(1.02); }
+
+    /* Lightbox */
+    .lb-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index:9999; }
+    .lb-backdrop.open{ display:flex; }
+    .lb-backdrop img{ max-width:90vw; max-height:88vh; border-radius:12px; border:1px solid #1f2b45; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+    .lb-close{ position:fixed; top:14px; right:16px; background:#111a2b; color:#cfe0ff; border:1px solid #2a3b5f; border-radius:999px; padding:8px 12px; cursor:pointer; }
+  </style>
+</meta><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root { --font-ui:'Inter',system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  html,body,button,input,select,textarea{font-family:var(--font-ui)}
+</style>
+<style>
+  :root { --accent:#37c0fb; --brand:#37c0fb; }
+  .header{border-bottom:1px solid rgba(255,255,255,.08);background:#0b1220;position:sticky;top:0;z-index:100}
+  .nav{display:flex;align-items:center;gap:18px;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;margin-right:6px;text-decoration:none}
+  .brand-pill{display:inline-block;background:#0f1b33;color:#b9dfff!important;padding:6px 12px;border-radius:10px;font-weight:800;letter-spacing:.02em}
+  .nav a{color:var(--brand);text-decoration:none;font-weight:600;font-size:18px;padding:0;border-radius:0;background:transparent}
+  .nav a:hover{color:#fff}
+  .nav a.active,.nav a[aria-current="page"]{color:#fff;border-bottom:2px solid var(--brand);padding-bottom:2px}
+  .spacer{flex:1 1 auto}
+</style>
+<meta content="Makeup by L — occasion and bridal makeup. See prices, gallery and book online." name="description"/>
+<meta content="Makeup by L — Occasion &amp; Bridal Makeup" property="og:title"/>
+<meta content="Makeup by L — occasion and bridal makeup. See prices, gallery and book online." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="assets/img/float-room.jpeg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<style id="mbl-strip-kill">
+  /* Hide any brand/title strip, eyebrow or subtitle line in the hero */
+  .hero .brand-card,
+  .hero .brand-strip,
+  .hero .title-pill,
+  .hero .service-subtitle,
+  .hero .subtitle,
+  .hero .subtitle-pill,
+  .hero .eyebrow,
+  .hero .kicker,
+  .hero small,
+  .hero .small,
+  .hero .subhead,
+  .hero .subheading,
+  .hero .category,
+  .hero .tags,
+  .hero .meta,
+  .hero .label,
+  .hero .label-row {
+    display: none !important;
+  }
+
+  /* Ensure the H1 is plain (no pill/background) */
+  .hero h1 {
+    background: transparent !important;
+    padding: 0 !important;
+    color: var(--ink) !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    margin: 0 0 10px !important;
+  }
+
+  /* If any pseudo content is injected around the H1, remove it */
+  .hero h1::before,
+  .hero h1::after {
+    content: none !important;
+    display: none !important;
+  }
+</style>
+
+
+</head>
+<body>
+<!-- Top navigation -->
+<!-- Header / Nav -->
+<header class="header">
+  <nav class="nav container" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Home">
+      <span class="brand-pill">Would B Wellness</span>
+    </a>
+
+    <a href="index.html" data-nav="home">Home</a>
+    <a href="float-therapy.html" data-nav="float">Float Therapy</a>
+    <a href="aw-hair.html" data-nav="awhair" class="active" aria-current="page">AW Hair</a>
+    <a href="makeup-by-l.html" data-nav="makeupl">Makeup by L</a>
+    <a href="terms.html" data-nav="terms">Terms</a>
+
+    <span class="spacer" aria-hidden="true"></span>
+    <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">
+      Book
+    </a>
+  </nav>
+</header>
+<main>
+<!-- Hero -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+
+<h1 style="margin:0 0 10px;">Makeup by L</h1>
+<p class="lead">Occasion and bridal makeup. Look your best for big days and big nights.</p><div class="chip-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;"><span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">✨ Long‑wear</span><span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">💧 Tear‑resistant</span><span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">📸 Photo‑ready</span><span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">👰 Bridal specialist</span></div>
+<div class="btnrow">
+<a class="btn" href="#prices">See Prices</a>
+<a class="btn" href="#mbl-gallery" style="background:transparent;border:1px solid var(--accent);color:var(--ink);">View Gallery</a>
+<a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&amp;pId=2659555" rel="noopener" target="_blank">Book Makeup</a>
+</div>
+</div>
+<!-- Optional hero visual (swap to a hero shot later if you like) -->
+<div class="hero-visual">
+<img alt="Makeup by L visual" src="assets/img/logos/makeuplogo.png"/>
+</div>
+</div>
+</section>
+<!-- Prices + Gallery -->
+<section class="section" id="prices">
+<div class="container split">
+<!-- LEFT: Price list image -->
+<div class="panel">
+<h3 style="margin-bottom:6px;">Prices</h3>
+<div class="prices-card">
+<img alt="Makeup by L price list" src="assets/img/prices/makeup-price.png"/>
+</div>
+<p class="smallnote">See Fresha for live availability and packages.</p>
+</div>
+<!-- RIGHT: Gallery (9 images) -->
+<div class="panel" id="mbl-gallery">
+<h3 style="margin-bottom:6px;">Gallery</h3>
+<div class="mini-gallery" data-lightbox="grid">
+<figure><img alt="Makeup look 1" src="assets/img/makeup-by-l/ml1.jpeg"/></figure>
+<figure><img alt="Makeup look 2" src="assets/img/makeup-by-l/ml2.jpeg"/></figure>
+<figure><img alt="Makeup look 3" src="assets/img/makeup-by-l/ml3.jpeg"/></figure>
+<figure><img alt="Makeup look 4" src="assets/img/makeup-by-l/ml4.jpeg"/></figure>
+<figure><img alt="Makeup look 5" src="assets/img/makeup-by-l/ml5.jpeg"/></figure>
+<figure><img alt="Makeup look 6" src="assets/img/makeup-by-l/ml6.jpeg"/></figure>
+<figure><img alt="Makeup look 7" src="assets/img/makeup-by-l/ml7.jpeg"/></figure>
+<figure><img alt="Makeup look 8" src="assets/img/makeup-by-l/ml8.jpeg"/></figure>
+<figure><img alt="Makeup look 9" src="assets/img/makeup-by-l/ml9.jpeg"/></figure>
+</div>
+</div>
+</div>
+</section>
+<!-- Good to know -->
+<section class="section" id="good-to-know">
+<div class="container panel">
+<h2>Good to know</h2>
+<ul style="margin:8px 0 0 18px; line-height:1.7; color:var(--muted);">
+<li>Bridal trials recommended 4–8 weeks before the wedding.</li>
+<li>Please arrive with clean, makeup-free skin.</li>
+<li>Strip lashes available on request.</li>
+<li>Deposits may apply for peak times and weddings.</li>
+</ul>
+</div>
+</section>
+<!-- Booking -->
+<section aria-labelledby="mbl-book" class="section booking" id="book">
+<div class="container panel">
+<h2 id="mbl-book">Book</h2>
+<p>Secure your slot instantly via Fresha.</p>
+<div class="btnrow" style="justify-content:center; margin-top:8px;">
+<a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&amp;pId=2659555" rel="noopener" target="_blank">Open Fresha</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div>© <span id="year"></span> Float • Fire &amp; Ice — 116 Kirkintilloch Road, Lenzie, Glasgow G66 4LQ ·
+        <a href="mailto:mail@floatfireandiceglasgow.com">mail@floatfireandiceglasgow.com</a> · 0141 530 2123</div>
+<div style="margin-top:8px">Made for GitHub Pages. Optimised for accessibility, SEO, and speed.</div>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</footer>
+<!-- Lightbox -->
+<div class="lb-backdrop" id="lightbox">
+<button aria-label="Close" class="lb-close" type="button">Close ✕</button>
+<img alt=""/>
+</div>
+<script>
+    // Simple lightbox (same as other pages)
+    (function(){
+      const grid = document.querySelector('[data-lightbox="grid"]');
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      const close = lb.querySelector('.lb-close');
+      if (!grid) return;
+
+      grid.addEventListener('click', (e) => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        lbImg.src = img.currentSrc || img.src;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      function dismiss(){
+        lb.classList.remove('open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+      close.addEventListener('click', dismiss);
+      lb.addEventListener('click', (e)=>{ if(e.target === lb) dismiss(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') dismiss(); });
+    })();
+  </script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>WOULDBWELLNESS — Wellness Studio Glasgow</title>
+  <meta name="description" content="Private floatation, infrared sauna, and ice bath sessions in Glasgow. Plus Angela Wood Hair and Makeup by L services — book instantly via Fresha.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Header consistency -->
+  <style>
+    :root { --font-ui:'Inter',system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; --accent:#37c0fb; --brand:#37c0fb; }
+    html,body,button,input,select,textarea{font-family:var(--font-ui)}
+    .header{border-bottom:1px solid rgba(255,255,255,.08);background:#0b1220;position:sticky;top:0;z-index:100}
+    .nav{display:flex;align-items:center;gap:18px;padding:14px 0}
+    .container{max-width:1100px;margin-inline:auto;padding-inline:16px}
+    .logo{display:flex;align-items:center;gap:10px;margin-right:6px;text-decoration:none}
+    .brand-pill{display:inline-block;background:#0f1b33;color:#b9dfff!important;padding:6px 12px;border-radius:10px;font-weight:800;letter-spacing:.02em}
+    .nav a{color:var(--brand);text-decoration:none;font-weight:600;font-size:18px;padding:0;border-radius:0;background:transparent}
+    .nav a:hover{color:#fff}
+    .nav a.active,.nav a[aria-current="page"]{color:#fff;border-bottom:2px solid var(--brand);padding-bottom:2px}
+    .spacer{flex:1 1 auto}
+    /* Headshot crop fixes (index cards) */
+img.headshot{
+  width:100%;
+  display:block;
+  aspect-ratio:16/9;
+  object-fit:cover;
+}
+
+/* Nudge crop so faces are centered nicely */
+img.headshot.angela{ object-position: 50% 22%; } /* a bit higher */
+img.headshot.leona { object-position: 50% 32%; } /* a touch lower */
+
+  </style>
+
+  <!-- Social -->
+  <meta property="og:title" content="Float • Fire &amp; Ice — Wellness Studio Glasgow">
+  <meta property="og:description" content="Floatation, Infrared & Ice — plus Hair & Makeup specialists under one roof in Lenzie. Book online.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/float-room.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <!-- Header / Nav -->
+ <!-- Header / Nav -->
+<header class="header">
+  <nav class="nav container" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Home">
+      <span class="brand-pill">Would B Wellness</span>
+    </a>
+
+    <a href="index.html" data-nav="home">Home</a>
+    <a href="float-therapy.html" data-nav="float">Float Therapy</a>
+    <a href="aw-hair.html" data-nav="awhair" class="active" aria-current="page">AW Hair</a>
+    <a href="makeup-by-l.html" data-nav="makeupl">Makeup by L</a>
+    <a href="terms.html" data-nav="terms">Terms</a>
+
+    <span class="spacer" aria-hidden="true"></span>
+    <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">
+      Book
+    </a>
+  </nav>
+</header>
+
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <p class="kicker">Welcome</p>
+        <h1>Floatation, Infrared &amp; Ice — now under one roof. Plus Hair &amp; Makeup specialists.</h1>
+        <p>Book the Float • Fire &amp; Ice room for a private 90-minute reset. Or visit <strong>Angela Wood Hair</strong> and <strong>Makeup by L</strong> — all in one destination.</p>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="float-therapy.html">Explore Float Therapy</a>
+          <a class="btn secondary" href="aw-hair.html">Angela Wood Hair</a>
+          <a class="btn secondary" href="makeup-by-l.html">Makeup by L</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <article class="card">
+    <img src="assets/img/float-room.jpeg" alt="Float • Fire &amp; Ice room with float tank, ice bath and infrared sauna">
+    <div class="p">
+      <h3>Float • Fire &amp; Ice</h3>
+      <p>Private room including 45m float + ice bath + infrared sauna, with showering facilities.</p>
+
+      <!-- facts / chips -->
+      <div class="chips" style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px;">
+        <span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">🧘 90-minute private room</span>
+        <span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">🧊 Ice bath + infrared</span>
+        <span class="chip" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#0e172b;border:1px solid #243251;color:#cfe0ff;box-shadow:0 6px 18px rgba(0,0,0,.12);font-weight:600;font-size:.95rem;">🧴 Luxury toiletries + shower</span>
+      </div>
+
+      <a class="btn" href="float-therapy.html">Details &amp; Booking</a>
+    </div>
+  </article>
+
+       <article class="card">
+  <img
+    src="assets/img/team/angela.jpeg"
+    alt="Angela Wood — Head Hairstylist">
+  <div class="p">
+    <h3>Angela Wood Hair</h3>
+    <p>Hi, I’m Angela, Head Hairstylist at Would B Wellness. I love helping people express themselves through fashion-forward styles and creative colour, and I work with all hair types and genders. Creating a calm welcoming, safe space is really important to me. My goal is to make sure every client leaves feeling amazing.</p>
+    <a class="btn" href="aw-hair.html">Visit AW Hair</a>
+  </div>
+</article>
+
+
+
+          <article class="card">
+            <img src="assets/img/team/leona.jpeg" alt="Leona — Makeup by L">
+            <div class="p">
+              <h3>Makeup by L</h3>
+              <p>I’m Leona, founder of Would B Wellness and MakeupbyL. I bring creativity and confidence to every client with photo-ready glam that enhances natural beauty — and a wellness-first approach.</p>
+              <a class="btn" href="makeup-by-l.html">Visit Makeup by L</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="year"></span> Float • Fire &amp; Ice — 116 Kirkintilloch Road, Lenzie, Glasgow G66 4LQ ·
+        <a href="mailto:mail@floatfireandiceglasgow.com">mail@floatfireandiceglasgow.com</a> · 0141 530 2123
+      </div>
+      <div style="margin-top:8px">Made for GitHub Pages. Optimised for accessibility, SEO, and speed.</div>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  </footer>
+
+  <!-- Active link helper -->
+  <script>
+    (function(){
+      var path=(location.pathname||"").replace(/\/+/g,'/').replace(/\/$/,'').toLowerCase();
+      var map={'':'home','/':'home','/index.html':'home','index.html':'home',
+               '/terms.html':'terms','terms.html':'terms',
+               '/float-therapy.html':'float','float-therapy.html':'float',
+               '/aw-hair.html':'awhair','aw-hair.html':'awhair',
+               '/makeup-by-l.html':'makeupl','makeup-by-l.html':'makeupl'};
+      var key=map[path]||null;
+      if(key){var el=document.querySelector('.nav a[data-nav="'+key+'"]'); if(el){el.classList.add('active'); el.setAttribute('aria-current','page');}}
+    })();
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

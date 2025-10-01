@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angela Wood Hair | Would B Wellness</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    :root{
+      --panel:#121a2b; --ink:#eaf2ff; --muted:#b9c6e6;
+      --accent:#37c0fb; --brand:#37c0fb;
+      --border:#1f2b45; --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.18);
+      --container:1100px;
+    }
+
+    /* Global font */
+    :root { --font-ui:'Inter',system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+    html,body,button,input,select,textarea{ font-family:var(--font-ui) }
+
+    body{ background:#0b1220; color:var(--ink); margin:0; }
+    .container{ max-width:var(--container); margin-inline:auto; padding-inline:16px; }
+    .section{ padding:48px 0; }
+    h2{ color:var(--ink); margin:0 0 16px; }
+
+    /* Unified header/nav */
+    .header{ border-bottom:1px solid rgba(255,255,255,.08); background:#0b1220; position:sticky; top:0; z-index:100; }
+    .nav{ display:flex; align-items:center; gap:18px; padding:14px 0; }
+    .logo{ display:flex; align-items:center; gap:10px; margin-right:6px; text-decoration:none; }
+    .brand-pill{ display:inline-block; background:#0f1b33; color:#b9dfff!important; padding:6px 12px; border-radius:10px; font-weight:800; letter-spacing:.02em; }
+    .nav a{ color:var(--brand); text-decoration:none; font-weight:600; font-size:18px; padding:0; border-radius:0; background:transparent; }
+    .nav a:hover{ color:#fff; }
+    .nav a.active,.nav a[aria-current="page"]{ color:#fff; border-bottom:2px solid var(--brand); padding-bottom:2px; }
+    .spacer{ flex:1 1 auto; }
+<header class="header">
+  <div class="container nav">
+    <!-- Logo / brand -->
+    <a href="index.html" class="logo">
+      <span class="brand-pill">Would B Wellness</span>
+    </a>
+
+  
+    /* Hero */
+    .hero{
+      position:relative; isolation:isolate; padding-top:72px; padding-bottom:28px;
+      background:
+        radial-gradient(900px 280px at 25% -40px, rgba(46,168,255,.25), transparent 70%),
+        radial-gradient(700px 240px at 85% -60px, rgba(85,200,255,.12), transparent 70%);
+    }
+    .hero::before{ content:""; position:absolute; inset:0; z-index:-1;
+      background: radial-gradient(1200px 600px at 50% -200px, rgba(0,0,0,.25), transparent 60%); }
+    .hero-grid{ display:grid; gap:24px; grid-template-columns:1fr; }
+    @media (min-width:980px){ .hero-grid{ grid-template-columns:1.05fr .95fr; align-items:center; } }
+    .eyebrow{ text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-size:.8rem; margin:0 0 10px; }
+    .h1{ font-size:clamp(1.6rem,1.25rem + 2vw,2.4rem); line-height:1.2; margin:0 0 14px; }
+    .h1--glow{
+      background:linear-gradient(0deg,#fff 0%,#d9e6ff 60%,#b9c6e6 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow:0 6px 30px rgba(46,168,255,.16);
+    }
+    .lead{ color:var(--muted); max-width:60ch; }
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border:1px solid transparent; border-radius:999px; background:var(--accent); color:#001026; font-weight:600; text-decoration:none; transition:transform .12s ease, box-shadow .25s ease; }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 10px 28px rgba(46,168,255,.25); }
+    .btn.secondary{ background:transparent; border-color:var(--accent); color:var(--ink); }
+
+    .statrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .stat{ display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:12px; background:#0e172b; border:1px solid #243251; color:#cfe0ff; box-shadow:0 6px 18px rgba(0,0,0,.12); font-weight:600; font-size:.95rem; }
+
+    .hero-visual{
+      background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:10px; aspect-ratio:4/3; display:grid; place-items:center; overflow:hidden;
+    }
+    .hero-visual img{ width:100%; height:100%; object-fit:contain; display:block; border-radius:10px; }
+
+    /* Prices + Gallery split */
+    .split{ display:grid; gap:18px; grid-template-columns:1fr; align-items:center; }
+    @media (min-width:900px){ .split{ grid-template-columns:1.1fr .9fr; } }
+    .panel{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; }
+    .panel h3{ margin:0 0 8px; }
+    .panel p{ color:var(--muted); }
+    .prices-card{ display:grid; place-items:center; margin-top:4px; }
+    .prices-card img{ width:100%; max-width:460px; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); }
+    .smallnote{ margin-top:6px; opacity:.85; color:var(--muted); }
+
+    /* Gallery grid: 2 cols mobile, 3 on ≥900px */
+    .mini-gallery{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
+    }
+    @media (min-width:900px){ .mini-gallery{ grid-template-columns:repeat(3, 1fr); } }
+    .mini-gallery figure{ margin:0; border-radius:12px; overflow:hidden; background:var(--panel); border:1px solid var(--border); box-shadow:0 6px 18px rgba(0,0,0,.12); }
+    .mini-gallery img{ width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; display:block; transition:transform .2s ease; }
+    .mini-gallery img:hover{ transform:scale(1.02); }
+
+    .booking{ text-align:center; }
+    .booking p{ color:var(--muted); }
+    .cta-panel{ text-align:center; }
+
+    /* 🔧 GAP FIX: top-align the items in the Prices/Gallery section */
+    #prices .split{ align-items:start !important; }
+
+    /* (Optional) tighten the section spacing a touch */
+    /* #prices.section{ padding-top:28px; } */
+  </style>
+
+  <!-- Meta / Social -->
+  <meta name="description" content="Angela Wood Hair — cut, colour and styling in a calm, welcoming space. View prices and gallery.">
+  <meta property="og:title" content="Angela Wood Hair | Would B Wellness">
+  <meta property="og:description" content="Angela Wood Hair — cut, colour and styling in a calm, welcoming space. View prices and gallery.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/float-room.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+ <!-- Header / Nav -->
+<header class="header">
+  <nav class="nav container" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Home">
+      <span class="brand-pill">Would B Wellness</span>
+    </a>
+
+    <a href="index.html" data-nav="home">Home</a>
+    <a href="float-therapy.html" data-nav="float">Float Therapy</a>
+    <a href="aw-hair.html" data-nav="awhair" class="active" aria-current="page">AW Hair</a>
+    <a href="makeup-by-l.html" data-nav="makeupl">Makeup by L</a>
+    <a href="terms.html" data-nav="terms">Terms</a>
+
+    <span class="spacer" aria-hidden="true"></span>
+    <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">
+      Book
+    </a>
+  </nav>
+</header>
+
+
+  <main>
+    <!-- Hero -->
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Welcome</div>
+          <h1 class="h1 h1--glow">Angela Wood Hair</h1>
+          <p class="lead">Cut, colour and styling with Angela. View the latest price list, browse the gallery, and book via Fresha.</p>
+          <div class="btnrow">
+            <a class="btn" href="#prices">See Prices</a>
+            <a class="btn secondary" href="#aw-split-gallery">View Gallery</a>
+            <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">Book with Angela</a>
+          </div>
+          <div class="statrow">
+            <span class="stat">✨ Lived-in Colour</span>
+            <span class="stat">🪄 Healthy Hair First</span>
+            <span class="stat">🤝 Calm, Welcoming Space</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/img/logos/awh.png" alt="Angela Wood Hair logo">
+        </div>
+      </div>
+    </section>
+
+    <!-- Prices + Gallery -->
+    <section class="section" id="prices">
+      <div class="container split">
+        <!-- LEFT: Prices -->
+        <div class="panel">
+          <h3>Prices</h3>
+          <div class="prices-card">
+            <img src="assets/img/prices/aw-hair-price.png" alt="Angela Wood Hair price list" loading="lazy" decoding="async">
+          </div>
+          <p class="smallnote">Valid from 1st August 2025</p>
+        </div>
+
+        <!-- RIGHT: Gallery -->
+<div class="panel" id="aw-split-gallery">
+  <h3>Gallery</h3>
+  <div class="mini-gallery" data-lightbox="grid">
+    <figure><img src="assets/img/aw-hair/photo1.jpeg" alt="Client hairstyle 1" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo2.jpeg" alt="Client hairstyle 2" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo3.jpeg" alt="Client hairstyle 3" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo4.jpeg" alt="Client hairstyle 4" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo5.jpeg" alt="Client hairstyle 5" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo6.jpeg" alt="Client hairstyle 6" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo7.jpeg" alt="Client hairstyle 7" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo8.jpeg" alt="Client hairstyle 8" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo9.jpeg" alt="Client hairstyle 9" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo10.jpeg" alt="Client hairstyle 10" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo11.jpeg" alt="Client hairstyle 11" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo12.jpeg" alt="Client hairstyle 12" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo13.jpeg" alt="Client hairstyle 13" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo14.jpeg" alt="Client hairstyle 14" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo15.jpeg" alt="Client hairstyle 15" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo16.jpeg" alt="Client hairstyle 16" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/img/aw-hair/photo17.jpeg" alt="Client hairstyle 17" loading="lazy" decoding="async"></figure>
+  </div>
+</div>
+</section>
+
+
+    <!-- Good to know -->
+    <section class="section" id="good-to-know">
+      <div class="container panel">
+        <h2>Good to know</h2>
+        <ul style="margin:8px 0 0 18px; line-height:1.7; color:var(--muted);">
+          <li>Skin/patch test required 48h before colour.</li>
+          <li>Consultations for new clients available.</li>
+          <li>Toner & treatments priced as required.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="section booking" id="book">
+      <div class="container panel">
+        <h2>Book online</h2>
+        <p>Secure your slot instantly via Fresha. Deposits may apply.</p>
+        <div class="btnrow" style="justify-content:center;">
+          <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">Open Fresha</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="section">
+      <div class="container panel cta-panel">
+        <p style="margin:10px 0; color:var(--muted);">
+          ★★★★★ Loved by clients — healthy colour, seamless blends, stress-free appointments.
+        </p>
+        <div class="btnrow" style="justify-content:center; margin-top:8px;">
+          <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">Book your slot</a>
+          <a class="btn secondary" href="#aw-split-gallery">See results</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lb-backdrop" id="lightbox">
+    <button class="lb-close" type="button">Close ✕</button>
+    <img alt="">
+  </div>
+
+  <script>
+    // Simple lightbox
+    (function(){
+      const grid = document.querySelector('[data-lightbox="grid"]');
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      const close = lb.querySelector('.lb-close');
+      if (!grid) return;
+
+      grid.addEventListener('click', (e) => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        lbImg.src = img.currentSrc || img.src;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      function dismiss(){
+        lb.classList.remove('open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+      close.addEventListener('click', dismiss);
+      lb.addEventListener('click', (e)=>{ if(e.target === lb) dismiss(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') dismiss(); });
+    })();
+  </script>
+
+  <script>
+    // Highlight active nav (defensive)
+    (function(){
+      var path = (location.pathname || "").replace(/\/+/g,'/').replace(/\/$/,'').toLowerCase();
+      var map = {
+        '': 'home', '/': 'home', '/index.html': 'home', 'index.html': 'home',
+        '/terms.html': 'terms', 'terms.html': 'terms',
+        '/float-therapy.html': 'float', 'float-therapy.html': 'float',
+        '/aw-hair.html': 'awhair', 'aw-hair.html': 'awhair',
+        '/makeup-by-l.html': 'makeupl', 'makeup-by-l.html': 'makeupl'
+      };
+      var key = map[path] || null;
+      if (key) {
+        var el = document.querySelector('.nav a[data-nav="'+key+'"]');
+        if (el) { el.classList.add('active'); el.setAttribute('aria-current','page'); }
+      }
+    })();
+  </script>
+
+  <footer>
+    <!-- footer (unchanged) -->
+  </footer>
+</body>
+</html>

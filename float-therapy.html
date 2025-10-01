@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title> | Would B Wellness</title>
+<meta content="Private floatation tank, infrared sauna and ice bath in Glasgow. Book solo or duo sessions." name="description"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<style>
+    :root{
+      --panel:#121a2b; --ink:#eaf2ff; --muted:#b9c6e6; --accent:#37c0fb;
+      --border:#1f2b45; --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.18);
+      --container:1100px;
+    }
+    body{ background:#0b1220; color:var(--ink); margin:0; }
+    .container{ max-width:var(--container); margin-inline:auto; padding-inline:16px; }
+    .section{ padding:48px 0; }
+    h2{ margin:0 0 16px; color:var(--ink); }
+
+    /* Top nav to match other pages */
+    .header{ border-bottom:1px solid var(--border); background:#0b1220; position:sticky; top:0; z-index:100; }
+    .nav{ display:flex; align-items:center; gap:18px; padding:14px 0; }
+    .nav a{ color:var(--accent); font-weight:600; text-decoration:none; }
+    .nav a:hover{ color:#fff; }
+    .nav a.active{ color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+    .logo{ display:flex; align-items:center; gap:10px; margin-right:6px; }
+    .logo img{ height:28px; width:auto; display:block; }
+    .badge{ background:#0e172b; border:1px solid #243251; color:#cfe0ff; border-radius:999px; padding:2px 8px; font-size:.75rem; }
+    .spacer{ flex:1 1 auto; }
+    .btn, .btn-book{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px;
+      font-weight:600; text-decoration:none; border:1px solid transparent;
+      background:var(--accent); color:#001026; transition: transform .12s ease, box-shadow .25s ease;
+    }
+    .btn:hover, .btn-book:hover{ transform:translateY(-1px); box-shadow:0 10px 28px rgba(55,192,251,.35); }
+
+    /* Hero */
+    .hero{
+      position:relative; isolation:isolate; padding:72px 0 28px;
+      background:
+        radial-gradient(900px 280px at 25% -40px, rgba(46,168,255,.25), transparent 70%),
+        radial-gradient(700px 240px at 85% -60px, rgba(85,200,255,.12), transparent 70%);
+    }
+    .hero::before{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background: radial-gradient(1200px 600px at 50% -200px, rgba(0,0,0,.25), transparent 60%);
+    }
+    .hero-grid{ display:grid; gap:24px; grid-template-columns:1fr; }
+    @media (min-width:980px){ .hero-grid{ grid-template-columns:1.05fr .95fr; align-items:center; } }
+    .kicker{ text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin:0 0 10px; }
+    .h1{ font-size:clamp(1.6rem,1.25rem + 2vw,2.4rem); line-height:1.2; margin:0 0 14px; background:linear-gradient(0deg,#fff 0%,#d9e6ff 60%,#b9c6e6 100%); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 6px 30px rgba(46,168,255,.16); }
+    .lead{ color:var(--muted); max-width:60ch; }
+
+    .hero-visual{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:10px; aspect-ratio:4/3; display:grid; place-items:center; overflow:hidden; }
+    .hero-visual img{ width:100%; height:100%; object-fit:cover; display:block; border-radius:10px; }
+
+    /* Split prices + gallery */
+    .split{ display:grid; gap:18px; grid-template-columns:1fr; align-items:center; }
+    @media (min-width:900px){ .split{ grid-template-columns:1.1fr .9fr; } }
+    .panel{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; }
+    .panel h3{ margin:0 0 8px; }
+    .panel p{ color:var(--muted); }
+
+    .prices-card{ display:grid; place-items:center; margin-top:4px; }
+    .prices-card img{ width:100%; max-width:520px; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); }
+    .smallnote{ margin-top:6px; opacity:.85; color:var(--muted); }
+
+    .mini-gallery{ display:grid; grid-template-columns:repeat(auto-fill, minmax(140px,1fr)); gap:10px; }
+    @media (min-width:1000px){ .mini-gallery{ grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:12px; } }
+    .mini-gallery figure{ margin:0; border-radius:12px; overflow:hidden; background:var(--panel); border:1px solid var(--border); box-shadow:0 6px 18px rgba(0,0,0,.12); }
+    .mini-gallery img{ width:100%; height:100%; aspect-ratio:1/1; object-fit:cover; display:block; transition:transform .2s ease; }
+    .mini-gallery img:hover{ transform:scale(1.02); }
+
+    /* Booking + CTA */
+    .booking{ text-align:center; }
+    .booking p{ color:var(--muted); }
+    .cta-panel{ text-align:center; }
+
+    /* Lightbox */
+    .lb-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index:9999; }
+    .lb-backdrop.open{ display:flex; }
+    .lb-backdrop img{ max-width:90vw; max-height:88vh; border-radius:12px; border:1px solid #1f2b45; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+    .lb-close{ position:fixed; top:14px; right:16px; background:#111a2b; color:#cfe0ff; border:1px solid #2a3b5f; border-radius:999px; padding:8px 12px; cursor:pointer; }
+  </style>
+</meta><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --font-ui:'Inter',system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  html,body,button,input,select,textarea{font-family:var(--font-ui)}
+</style>
+<style>
+  :root { --accent:#37c0fb; --brand:#37c0fb; }
+  .header{border-bottom:1px solid rgba(255,255,255,.08);background:#0b1220;position:sticky;top:0;z-index:100}
+  .nav{display:flex;align-items:center;gap:18px;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;margin-right:6px;text-decoration:none}
+  .brand-pill{display:inline-block;background:#0f1b33;color:#b9dfff!important;padding:6px 12px;border-radius:10px;font-weight:800;letter-spacing:.02em}
+  .nav a{color:var(--brand);text-decoration:none;font-weight:600;font-size:18px;padding:0;border-radius:0;background:transparent}
+  .nav a:hover{color:#fff}
+  .nav a.active,.nav a[aria-current="page"]{color:#fff;border-bottom:2px solid var(--brand);padding-bottom:2px}
+  .spacer{flex:1 1 auto}
+</style>
+<meta name="description" content="Private float sessions with infrared sauna and shower facilities at Would B Wellness in Lenzie.">
+<meta property="og:title" content="Float • Fire &amp; Ice | Would B Wellness">
+<meta property="og:description" content="Private float sessions with infrared sauna and shower facilities at Would B Wellness in Lenzie.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/float-room.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- Top navigation -->
+<!-- Header / Nav -->
+<header class="header">
+  <nav class="nav container" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Home">
+      <span class="brand-pill">Would B Wellness</span>
+    </a>
+
+    <a href="index.html" data-nav="home">Home</a>
+    <a href="float-therapy.html" data-nav="float">Float Therapy</a>
+    <a href="aw-hair.html" data-nav="awhair" class="active" aria-current="page">AW Hair</a>
+    <a href="makeup-by-l.html" data-nav="makeupl">Makeup by L</a>
+    <a href="terms.html" data-nav="terms">Terms</a>
+
+    <span class="spacer" aria-hidden="true"></span>
+    <a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&pId=2659555" target="_blank" rel="noopener">
+      Book
+    </a>
+  </nav>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<p class="kicker">Float • Fire &amp; Ice</p>
+<h1 class="h1">Experience floatation, heat and cold therapy in a private 90-minute session</h1>
+<p class="lead">Solo and duo sessions available. Bring towels and toiletries, or request on site.</p>
+<div class="btnrow" style="margin-top:14px;">
+<a class="btn" href="#prices">See Prices</a>
+<a class="btn secondary" href="#ffi-gallery" style="background:transparent;border:1px solid var(--accent);color:var(--ink);">View Gallery</a>
+<a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&amp;pId=2659555" rel="noopener" target="_blank">Book a session</a>
+</div>
+</div>
+<div class="hero-visual">
+<!-- Replace with a real float/sauna image when ready -->
+<img alt="Float • Fire &amp; Ice facilities" src="assets/img/logos/ftlogo.png"/>
+</div>
+</div>
+</section>
+<!-- Prices + Gallery side-by-side -->
+<section class="section" id="prices">
+<div class="container split">
+<!-- LEFT: Price list -->
+<div class="panel">
+<h3 style="margin-bottom:6px;">Prices</h3>
+<div class="prices-card">
+<img alt="Float • Fire &amp; Ice price list" src="assets/img/prices/ffi-price.png"/>
+</div>
+<p class="smallnote">Valid from 1st August 2025</p>
+</div>
+<!-- RIGHT: Gallery -->
+<div class="panel" id="ffi-gallery">
+<h3 style="margin-bottom:6px;">Gallery</h3>
+<div class="mini-gallery" data-lightbox="grid">
+<figure><img alt="Infrared sauna room" src="assets/img/float/ff1.jpeg"/></figure>
+<figure><img alt="Ice bath" src="assets/img/float/ff2.jpeg"/></figure>
+<figure><img alt="Floatation tank" src="assets/img/float/ff3.jpeg"/></figure>
+<figure><img alt="Relaxation area" src="assets/img/float/ff4.jpeg"/></figure>
+<figure><img alt="Infrared sauna bench" src="assets/img/float/ff5.jpeg"/></figure>
+<figure><img alt="Cold plunge setup" src="assets/img/float/ff6.jpeg"/></figure>
+<figure><img alt="Private spa room" src="assets/img/float/ff7.jpeg"/></figure>
+<figure><img alt="Float pod open view" src="assets/img/float/ff8.jpeg"/></figure>
+<figure><img alt="Float • Fire &amp; Ice interior" src="assets/img/float/ff10.jpeg"/></figure>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Good to know -->
+<section class="section" id="good-to-know">
+<div class="container panel">
+<h2>Good to know</h2>
+<ul style="margin:8px 0 0 18px; line-height:1.7; color:var(--muted);">
+<li>Sessions are 90 minutes total (including shower/change time).</li>
+<li>Bring towels and toiletries (available to rent on request).</li>
+<li>Sauna set to your preference; ice bath typically 6–8°C (colder on request).</li>
+<li>Avoid caffeine and heavy meals 1–2 hours before your session.</li>
+<li>Please arrive 10 minutes early for your first visit and health questionnaire.</li>
+</ul>
+</div>
+</section>
+<!-- Booking -->
+<section aria-labelledby="book-heading" class="section booking" id="book">
+<div class="container panel">
+<h2 id="book-heading">Book</h2>
+<p>Secure your slot instantly via Fresha.</p>
+<div class="btnrow" style="justify-content:center; margin-top:8px;">
+<a class="btn" href="https://www.fresha.com/book-now/wouldbwellness-en0rqhd7/all-offer?share=true&amp;pId=2659555" rel="noopener" target="_blank">Open Fresha</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (kept from your original) -->
+<footer class="footer">
+<div class="container">
+<div>© <span id="year"></span> Float • Fire &amp; Ice — 116 Kirkintilloch Road, Lenzie, Glasgow G66 4LQ ·
+        <a href="mailto:mail@floatfireandiceglasgow.com">mail@floatfireandiceglasgow.com</a> · 0141 530 2123</div>
+<div style="margin-top:8px">Made for GitHub Pages. Optimised for accessibility, SEO, and speed.</div>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</footer>
+<!-- Lightbox -->
+<div class="lb-backdrop" id="lightbox">
+<button aria-label="Close" class="lb-close" type="button">Close ✕</button>
+<img alt=""/>
+</div>
+<!-- Tiny JS for the gallery lightbox -->
+<script>
+    (function(){
+      const grid = document.querySelector('[data-lightbox="grid"]');
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      const close = lb.querySelector('.lb-close');
+      if (!grid) return;
+
+      grid.addEventListener('click', (e) => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        lbImg.src = img.currentSrc || img.src;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      function dismiss(){
+        lb.classList.remove('open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+      close.addEventListener('click', dismiss);
+      lb.addEventListener('click', (e)=>{ if(e.target === lb) dismiss(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') dismiss(); });
+    })();
+  </script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
